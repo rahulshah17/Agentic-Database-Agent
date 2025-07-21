@@ -1,0 +1,118 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1752959031909,
+      "tag": "0000_optimal_ultimates",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1753062815747,
+      "tag": "0001_remarkable_madame_web",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1753063920497,
+      "tag": "0002_stiff_silk_fever",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1753064174602,
+      "tag": "0003_powerful_nico_minoru",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1753064285113,
+      "tag": "0004_worried_the_anarchist",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1753064905294,
+      "tag": "0005_unknown_storm",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1753065280151,
+      "tag": "0006_empty_dexter_bennett",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1753065534312,
+      "tag": "0007_zippy_the_hand",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1753065722324,
+      "tag": "0008_same_warbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1753066354060,
+      "tag": "0009_smooth_hemingway",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1753067592441,
+      "tag": "0010_lame_tarot",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1753069219475,
+      "tag": "0011_dry_the_leader",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1753072901773,
+      "tag": "0012_modern_mephisto",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1753075059073,
+      "tag": "0013_purple_franklin_storm",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1753075484280,
+      "tag": "0014_nasty_emma_frost",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1753077961268,
+      "tag": "0015_freezing_sunset_bain",
+      "breakpoints": true
+    }
+  ]
+}
