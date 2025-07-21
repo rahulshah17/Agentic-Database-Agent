@@ -1,3 +1,5 @@
+# Agentic-Database-Agent
+A Agentic Database Agent to handle the end-to-end process of Natural Query to creation of a table with schema and perfrom CRUD operations by creating API's and Next.js frontend components
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
