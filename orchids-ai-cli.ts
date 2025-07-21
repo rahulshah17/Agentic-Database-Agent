@@ -265,7 +265,7 @@ class OrchidsAICLI {
       let m;
       while ((m = columnRegex.exec(objectBody)) !== null) {
         const col = m[1];
-        if (!['id', 'created_at', 'updated_at', 'createdAt', 'updatedAt'].includes(col)) {
+        if (!['id', 'created_at', 'updated_at', 'createdAt', 'updatedAt','played_at'].includes(col)) {
           realFields.push(col);
         }
       }
@@ -273,7 +273,7 @@ class OrchidsAICLI {
     } catch (e) {
       console.error(`❌ Error extracting real columns for table '${tableName}':`, e);
       // fallback to AI schema if not found
-      realFields = table.fields.map(f => f.name).filter(f => !['id', 'created_at', 'updated_at', 'createdAt', 'updatedAt'].includes(f));
+      realFields = table.fields.map(f => f.name).filter(f => !['id', 'created_at', 'updated_at', 'createdAt', 'updatedAt','played_at'].includes(f));
       console.log(`⚠️  Table '${tableName}' not found in schema.ts, using AI schema columns:`, realFields);
     }
 
