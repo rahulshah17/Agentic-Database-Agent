@@ -1,24 +1,24 @@
 import { NextResponse } from "next/server";
         import { db } from "@/db"; 
-        import { recently_played_songs } from "@/db/schema";
+        import { temperature } from "@/db/schema";
         import { eq } from "drizzle-orm";
 
         export async function GET() {
         try {
-            const items = await db.select().from(recently_played_songs);
+            const items = await db.select().from(temperature);
             return NextResponse.json(items);
         } catch (error) {
-            return NextResponse.json({ error: "Failed to fetch recently_played_songs" }, { status: 500 });
+            return NextResponse.json({ error: "Failed to fetch temperature" }, { status: 500 });
         }
         }
 
         export async function POST(request: Request) {
         try {
             const body = await request.json();
-            const newItem = await db.insert(recently_played_songs).values(body).returning();
+            const newItem = await db.insert(temperature).values(body).returning();
             return NextResponse.json(newItem[0]);
         } catch (error) {
-            return NextResponse.json({ error: "Failed to create recently_played_songs" }, { status: 500 });
+            return NextResponse.json({ error: "Failed to create temperature" }, { status: 500 });
         }
         }
 
@@ -26,13 +26,13 @@ import { NextResponse } from "next/server";
         try {
             const body = await request.json();
             const { id, ...data } = body;
-            const updatedItem = await db.update(recently_played_songs)
+            const updatedItem = await db.update(temperature)
             .set(data)
-            .where(eq(recently_played_songs.id, id))
+            .where(eq(temperature.id, id))
             .returning();
             return NextResponse.json(updatedItem[0]);
         } catch (error) {
-            return NextResponse.json({ error: "Failed to update recently_played_songs" }, { status: 500 });
+            return NextResponse.json({ error: "Failed to update temperature" }, { status: 500 });
         }
         }
 
@@ -43,9 +43,9 @@ import { NextResponse } from "next/server";
             if (!id) {
             return NextResponse.json({ error: "ID is required" }, { status: 400 });
             }
-            await db.delete(recently_played_songs).where(eq(recently_played_songs.id, parseInt(id)));
+            await db.delete(temperature).where(eq(temperature.id, parseInt(id)));
             return NextResponse.json({ message: "Deleted successfully" });
         } catch (error) {
-            return NextResponse.json({ error: "Failed to delete recently_played_songs" }, { status: 500 });
+            return NextResponse.json({ error: "Failed to delete temperature" }, { status: 500 });
         }
         }

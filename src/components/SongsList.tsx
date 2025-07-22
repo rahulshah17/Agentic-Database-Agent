@@ -4,9 +4,7 @@ import { useState, useEffect } from 'react';
 interface Songs {
   id: number;
   title: string;
-  artist: string;
-  album: string;
-  played_at: string;
+  address: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -15,9 +13,9 @@ export default function SongsList() {
   const [items, setItems] = useState<Songs[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [form, setForm] = useState({ title: '', artist: '', album: '', played_at: '' });
+  const [form, setForm] = useState({ title: '', address: '' });
   const [editingId, setEditingId] = useState<number | null>(null);
-  const [editForm, setEditForm] = useState({ title: '', artist: '', album: '', played_at: '' });
+  const [editForm, setEditForm] = useState({ title: '', address: '' });
   const [error, setError] = useState<string | null>(null);
 
   const fetchItems = async () => {
@@ -61,7 +59,7 @@ export default function SongsList() {
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error('Failed to add songs');
-      setForm({ title: '', artist: '', album: '', played_at: '' });
+      setForm({ title: '', address: '' });
       fetchItems();
     } catch (err) {
       setError('Failed to add songs');
@@ -70,7 +68,7 @@ export default function SongsList() {
 
   const handleEdit = (item: Songs) => {
     setEditingId(item.id);
-    setEditForm({ title: item.title, artist: item.artist, album: item.album, played_at: item.played_at });
+    setEditForm({ title: item.title, address: item.address });
   };
 
   const handleEditSubmit = async (e: React.FormEvent) => {
@@ -126,19 +124,15 @@ export default function SongsList() {
               {editingId === item.id ? (
                 <form onSubmit={handleEditSubmit} className="flex gap-2 flex-1">
                   <input name="title" value={editForm.title} onChange={handleEditInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Title" required />
-                  <input name="artist" value={editForm.artist} onChange={handleEditInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Artist" required />
-                  <input name="album" value={editForm.album} onChange={handleEditInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Album" required />
-                  <input name="played_at" value={editForm.played_at} onChange={handleEditInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Played_at" required />
+                  <input name="address" value={editForm.address} onChange={handleEditInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Address" required />
                   <button type="submit" className="px-2 py-1 bg-green-600 text-white rounded">Save</button>
                   <button type="button" className="px-2 py-1 bg-gray-400 text-white rounded" onClick={() => setEditingId(null)}>Cancel</button>
                 </form>
               ) : (
                 <>
-                  <div>
+                  <div style={{width: '70%'}}>
                     <div className="font-semibold">{item.title}</div>
-                    <div className="font-semibold">{item.artist}</div>
-                    <div className="font-semibold">{item.album}</div>
-                    <div className="font-semibold">{item.played_at}</div>
+                    <div className="font-semibold">{item.address}</div>
                   </div>
                   <div className="flex gap-2">
                     <button className="px-2 py-1 bg-yellow-500 text-white rounded" onClick={() => handleEdit(item)}>Edit</button>
@@ -153,9 +147,7 @@ export default function SongsList() {
       <hr className="my-6" />
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input name="title" value={form.title} onChange={handleInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Title" required />
-        <input name="artist" value={form.artist} onChange={handleInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Artist" required />
-        <input name="album" value={form.album} onChange={handleInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Album" required />
-        <input name="played_at" value={form.played_at} onChange={handleInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Played_at" required />
+        <input name="address" value={form.address} onChange={handleInputChange} className="border rounded px-2 py-1 flex-1" placeholder="Address" required />
         <button type="submit" className="px-4 py-1 bg-green-600 text-white rounded">Add</button>
       </form>
     </div>

@@ -1,8 +1,7 @@
-
 "use client"
 
+
 import SongsList from '@/components/SongsList'
-import AlbumsList from '@/components/AlbumsList'
 import { useState } from 'react'
 import SpotifySidebar from '@/components/spotify-sidebar'
 import SpotifyMainContent from '@/components/spotify-main-content'
@@ -25,6 +24,14 @@ export default function SpotifyApp() {
 
   
 const [showSongsList, setShowSongsList] = useState(false);
+
+const [showPlaylistsList, setShowPlaylistsList] = useState(false);
+
+const [showRecently_played_songsList, setShowRecently_played_songsList] = useState(false);
+
+const [showTemperatureList, setShowTemperatureList] = useState(false);
+
+const [showPopular_albumsList, setShowPopular_albumsList] = useState(false);
 const [isSidebarVisible, setIsSidebarVisible] = useState(true)
   const [currentView, setCurrentView] = useState<'home' | 'search' | 'library' | 'playlist'>('home')
   const [searchQuery, setSearchQuery] = useState('')
@@ -179,11 +186,12 @@ const [isSidebarVisible, setIsSidebarVisible] = useState(true)
 
           {/* Main Content */}
           <div className="flex-1 overflow-y-auto pb-24">
+
+
 <button className="m-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold" onClick={() => setShowSongsList((prev) => !prev)}>{showSongsList ? 'Hide Songs Management' : 'Show Songs Management'}</button>
 {showSongsList && <SongsList />}
 
-          <button className="m-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold" onClick={() => setShowAlbumsList((prev) => !prev)}>{showAlbumsList ? 'Hide Albums Management' : 'Show Albums Management'}</button>
-          {showAlbumsList && <AlbumsList />}
+          
             <button className="m-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold" onClick={() => setShowGrammyList((prev) => !prev)}>{ShowGrammyList ? 'Hide Grammy Management' : 'Show Grammy Management'}</button>
             {ShowGrammyList && <GrammyList />}
             {currentView === 'home' && <SpotifyMainContent onPlayTrack={handlePlayTrack} />}

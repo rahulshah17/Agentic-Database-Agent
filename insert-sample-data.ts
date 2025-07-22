@@ -3,9 +3,7 @@
         import { songs } from "./src/db/schema.js";
 
         const sampleData = [
-        { title: "Song Title 1", artist: "Artist 1", album: "Album 1" },
-  { title: "Song Title 2", artist: "Artist 2", album: "Album 2" },
-  { title: "Song Title 3", artist: "Artist 3", album: "Album 3" }
+        { title: "Highest in the room", artist: null, album: null }
         ];
 
         async function insertData() {
